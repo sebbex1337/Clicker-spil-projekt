@@ -1,0 +1,25 @@
+#screen {
+  aspect-ratio: 16 / 9;
+  outline: 1px solid orange;
+  background-color: rgba(255, 0, 0, 0.25);
+}
+
+#game {
+  outline: 1px solid red;
+  background-color: rgba(0, 255, 0, 0.25);
+}
+
+#start {
+  outline: 1px solid blue;
+  background-color: rgba(0, 0, 255, 0.25);
+}
+
+#game_over {
+  outline: 1px solid yellow;
+  background-color: rgba(50, 50, 50, 0.25);
+}
+
+#level_complete {
+  outline: 1px solid green;
+  background-color: rgba(150, 50, 150, 0.25);
+}
