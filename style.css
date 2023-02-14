@@ -24,3 +24,12 @@
   outline: 1px solid green;
   background-color: rgba(150, 50, 150, 0.25);
 }
+
+/* img {
+  width: 100%;
+} */
+
+#airport {
+  width: 100%;
+  z-index: 1;
+}
