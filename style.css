@@ -12,7 +12,6 @@ body {
 
 #game {
   grid-area: 1 / 1;
-  background-color: blue;
   overflow: hidden;
 
   display: grid;
