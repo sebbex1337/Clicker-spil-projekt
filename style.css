@@ -3,57 +3,73 @@ body {
 }
 
 #screen {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 100%;
   aspect-ratio: 16 / 9;
   width: 100%;
-  outline: 1px solid orange;
-  background-color: rgba(255, 0, 0, 0.25);
 }
 
 #game {
-  outline: 1px solid red;
-  background-color: rgba(0, 255, 0, 0.25);
+  grid-area: 1 / 1;
+  background-color: blue;
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 10% / 10%;
+  grid-template-rows: 100%;
 }
 
-#start {
-  outline: 1px solid blue;
-  background-color: rgba(0, 0, 255, 0.25);
+#game_background {
+  grid-area: 1 / 1;
+  background-image: url(background/airport.jpg);
+  background-size: cover;
 }
 
-#game_over {
-  outline: 1px solid yellow;
-  background-color: rgba(50, 50, 50, 0.25);
-}
-
-#level_complete {
-  outline: 1px solid green;
-  background-color: rgba(150, 50, 150, 0.25);
-}
-
-#airport {
-  width: 100%;
-  z-index: 1;
+#game_elements {
+  grid-area: 1 / 1;
+  position: relative;
+  overflow: hidden;
 }
 
 img {
   width: 100%;
 }
 
+/* Game elements */
+
 #grumpy-container {
   width: 5%;
+  position: absolute;
+  top: 50%;
+  left: 30%;
 }
 
 #fryingpanbird-container {
   width: 5%;
+  position: absolute;
+  top: 30%;
+  left: 20%;
 }
 
 #pinkbird-container {
   width: 5%;
+  position: absolute;
+  top: 60%;
+  left: 10%;
 }
 
 #punkbird-container {
   width: 5%;
+  position: absolute;
+  top: 70%;
+  left: 60%;
 }
 
 #plane-container {
   width: 5%;
+  position: absolute;
+  rotate: 155deg;
+  top: 10%;
+  left: 37.7%;
 }
