@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 #screen {
   aspect-ratio: 16 / 9;
   width: 100%;
@@ -25,11 +29,31 @@
   background-color: rgba(150, 50, 150, 0.25);
 }
 
-/* img {
-  width: 100%;
-} */
-
 #airport {
   width: 100%;
   z-index: 1;
+}
+
+img {
+  width: 100%;
+}
+
+#grumpy-container {
+  width: 5%;
+}
+
+#fryingpanbird-container {
+  width: 5%;
+}
+
+#pinkbird-container {
+  width: 5%;
+}
+
+#punkbird-container {
+  width: 5%;
+}
+
+#plane-container {
+  width: 5%;
 }
