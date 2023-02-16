@@ -40,35 +40,121 @@ img {
 #grumpy-container {
   width: 5%;
   position: absolute;
-  top: 50%;
-  left: 30%;
 }
 
 #fryingpanbird-container {
   width: 5%;
   position: absolute;
-  top: 30%;
-  left: 20%;
 }
 
 #pinkbird-container {
   width: 5%;
   position: absolute;
-  top: 60%;
-  left: 10%;
 }
 
 #punkbird-container {
   width: 5%;
   position: absolute;
-  top: 70%;
-  left: 60%;
 }
 
 #plane-container {
   width: 5%;
   position: absolute;
-  rotate: 155deg;
-  top: 10%;
-  left: 37.7%;
+  rotate: 152deg;
+}
+
+.flying1 {
+  animation-name: flying1;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  translate: -100% 0;
+}
+
+@keyframes flying1 {
+  0% {
+    transform: translate(0, 250%);
+  }
+  100% {
+    transform: translate(2500%, 750%);
+  }
+}
+
+.flying2 {
+  animation-name: flying2;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flying2 {
+  0% {
+  }
+  100% {
+  }
+}
+
+.flying3 {
+  animation-name: flying3;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flying3 {
+  0% {
+  }
+  100% {
+  }
+}
+
+.flying4 {
+  animation-name: flying2;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+@keyframes flying4 {
+  0% {
+  }
+  100% {
+  }
+}
+
+.airplanefly {
+  animation-name: airplanefly;
+  animation-duration: 10s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+  translate: 630% -100%;
+}
+
+@keyframes airplanefly {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-35%, -1600%);
+  }
+}
+
+.hit {
+  animation-name: hit;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  translate: 250% 250%;
+}
+
+@keyframes hit {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0);
+  }
 }
