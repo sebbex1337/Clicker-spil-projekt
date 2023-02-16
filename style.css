@@ -61,10 +61,16 @@ img {
   transform: scaleX(-1);
 }
 
-#plane-container {
-  width: 5%;
+#airplaneblue-container {
+  width: 12%;
   position: absolute;
-  rotate: 152deg;
+  rotate: -10deg;
+}
+
+#airplanedarkblue-container {
+  width: 10%;
+  position: absolute;
+  rotate: -10deg;
 }
 
 .flying1 {
@@ -131,24 +137,41 @@ img {
     transform: translate(0, 250%);
   }
   100% {
-    transform: translate(-1000%, 500%);
+    transform: translate(-2500%, 500%);
   }
 }
 
-.airplanefly {
-  animation-name: airplanefly;
+.airplaneblue-fly {
+  animation-name: airplaneblue-fly;
   animation-duration: 10s;
-  animation-timing-function: ease-in;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
-  translate: 630% -100%;
+  translate: 850% 0;
 }
 
-@keyframes airplanefly {
+@keyframes airplaneblue-fly {
   0% {
     transform: translate(0, 0);
   }
   100% {
-    transform: translate(-35%, -1600%);
+    transform: translate(-2500%, -800%);
+  }
+}
+
+.airplanedarkblue-fly {
+  animation-name: airplanedarkblue-fly;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  translate: 1000% 200%;
+}
+
+@keyframes airplanedarkblue-fly {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-2500%, -800%);
   }
 }
 
