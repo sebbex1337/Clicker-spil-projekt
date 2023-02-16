@@ -57,6 +57,10 @@ img {
   position: absolute;
 }
 
+#punkbird-sprite {
+  transform: scaleX(-1);
+}
+
 #plane-container {
   width: 5%;
   position: absolute;
@@ -119,15 +123,15 @@ img {
   animation-duration: 10s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
-  transform: rotateY(180deg);
-  translate: -100% 0;
+  translate: 2000% 0;
 }
 
 @keyframes flying4 {
   0% {
-    transform: translate();
+    transform: translate(0, 250%);
   }
   100% {
+    transform: translate(-1000%, 500%);
   }
 }
 
