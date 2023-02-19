@@ -37,37 +37,37 @@ img {
 
 /* Game elements */
 
-#grumpy-container {
+#grumpy_container {
   width: 5%;
   position: absolute;
 }
 
-#fryingpanbird-container {
+#fryingpanbird_container {
   width: 5%;
   position: absolute;
 }
 
-#pinkbird-container {
+#pinkbird_container {
   width: 5%;
   position: absolute;
 }
 
-#punkbird-container {
+#punkbird_container {
   width: 5%;
   position: absolute;
 }
 
-#punkbird-sprite {
+#punkbird_sprite {
   transform: scaleX(-1);
 }
 
-#airplaneblue-container {
+#airplaneblue_container {
   width: 12%;
   position: absolute;
   rotate: -10deg;
 }
 
-#airplanedarkblue-container {
+#airplanedarkblue_container {
   width: 10%;
   position: absolute;
   rotate: -10deg;
@@ -141,15 +141,15 @@ img {
   }
 }
 
-.airplaneblue-fly {
-  animation-name: airplaneblue-fly;
+.airplaneblue_fly {
+  animation-name: airplaneblue_fly;
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 850% 0;
 }
 
-@keyframes airplaneblue-fly {
+@keyframes airplaneblue_fly {
   0% {
     transform: translate(0, 0);
   }
@@ -158,15 +158,15 @@ img {
   }
 }
 
-.airplanedarkblue-fly {
-  animation-name: airplanedarkblue-fly;
+.airplanedarkblue_fly {
+  animation-name: airplanedarkblue_fly;
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 1000% 200%;
 }
 
-@keyframes airplanedarkblue-fly {
+@keyframes airplanedarkblue_fly {
   0% {
     transform: translate(0, 0);
   }
