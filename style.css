@@ -77,7 +77,7 @@ img {
   animation-name: flying1;
   animation-duration: 10s;
   animation-timing-function: ease-in;
-  animation-iteration-count: infinite;
+  animation-iteration-count: 1;
   translate: -100% 0;
 }
 
