@@ -73,6 +73,8 @@ img {
   rotate: -10deg;
 }
 
+/* Animations and animation classes */
+
 .flying1 {
   animation-name: flying1;
   animation-duration: 10s;
