@@ -15,24 +15,80 @@ function start() {
 
   /* EventListeners */
   document.querySelector("#grumpy_container").addEventListener("click", clickGrumpy);
+
+  document.querySelector("#airplaneblue_container").addEventListener("click", blueplaneClick);
+}
+
+function incrementPoints() {
+  points++;
+  displayincrementPoints();
+}
+
+function displayincrementPoints() {
+  document.querySelector("#scorePoints").textContent = points;
+}
+
+function decrementLives() {
+  displaydecrementLives();
+  lives--;
+}
+
+function displaydecrementLives() {
+  document.querySelector("#heart" + lives).classList.remove("active_heart");
+  document.querySelector("#heart" + lives).classList.add("broken_heart");
 }
 
 function clickGrumpy() {
-  console.log("grumpy")
-
+  // Remove eventlistener
   document.querySelector("#grumpy_container").removeEventListener("click", clickGrumpy);
-
+  // Add pause and hit animations
   document.querySelector("#grumpy_container").classList.add("paused");
   document.querySelector("#grumpy_sprite").classList.add("hit");
-
+  // Eventlistener for animationend
   document.querySelector("#grumpy_container").addEventListener("animationend", grumpyGone);
+  // Add point on click
+  incrementPoints();
 }
 
 function grumpyGone() {
+  // Remove eventlistener
   document.querySelector("#grumpy_container").removeEventListener("animationend", grumpyGone);
+  // Remove hit animation and paused
+  document.querySelector("#grumpy_sprite").classList.remove("hit");
+  document.querySelector("#grumpy_container").classList.remove("paused");
+  // Reflow sprite using offsetWidth
+  document.querySelector("#grumpy_container").classList.remove("flying1");
+  document.querySelector("#grumpy_container").offsetWidth;
+  document.querySelector("#grumpy_container").classList.add("flying1");
+  // Add ability to click again
+  document.querySelector("#grumpy_container").addEventListener("click", clickGrumpy);
 }
 
+function blueplaneClick() {
+    // Remove eventlistener
+  document.querySelector("#airplaneblue_container").removeEventListener("click", blueplaneClick);
+  // Add pause and hit animations
+  document.querySelector("#airplaneblue_container").classList.add("paused");
+  document.querySelector("#airplaneblue_sprite").classList.add("hit");
+  // Eventlistener for animationend
+  document.querySelector("#airplaneblue_container").addEventListener("animationend", blueplaneGone);
+  // Remove life when clicked
+  decrementLives();
+}
 
+function blueplaneGone() {
+  // Remove eventlistener
+  document.querySelector("#airplaneblue_container").removeEventListener("animationend", blueplaneGone);
+  // Remove hit animation and paused
+  document.querySelector("#airplaneblue_sprite").classList.remove("hit");
+  document.querySelector("#airplaneblue_container").classList.remove("paused");
+  // Reflow sprite using offsetWidth
+  document.querySelector("#airplaneblue_container").classList.remove("airplaneblue_fly");
+  document.querySelector("#airplaneblue_container").offsetWidth;
+  document.querySelector("#airplaneblue_container").classList.add("airplaneblue_fly");
+  // Add ability to click again
+  document.querySelector("#airplaneblue_container").addEventListener("click", blueplaneClick);
+}
 
 
 
