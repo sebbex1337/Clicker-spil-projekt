@@ -34,7 +34,12 @@ function start() {
   airplaneblue_container.addEventListener("click", function () {
     pauseAnimation(airplaneblue_container);
     hitAnimation(airplaneblue_sprite);
-  })
+  });
+
+  punkbird_container.addEventListener("click", function () {
+    pauseAnimation(punkbird_container);
+    hitAnimation(punkbird_sprite);
+  });
 }
 
 function pauseAnimation(elem) {
