@@ -13,57 +13,39 @@
         <div id="game_background"></div>
         <div id="game_elements">
           <div id="grumpy_container">
-            <img src="img/grumpy.png" alt="grumpy_sprite" id="grumpy_sprite" />
+            <img src="img/grumpy.png" id="grumpy_sprite" />
           </div>
           <div id="fryingpanbird_container">
-            <img
-              src="img/fryingpanbird.png"
-              alt="fryingpanbird_sprite"
-              id="fryingpanbird_sprite"
-            />
+            <img src="img/fryingpanbird.png" id="fryingpanbird_sprite"/>
           </div>
           <div id="pinkbird_container">
-            <img
-              src="img/pinkbird.png"
-              alt="pinkbird_sprite"
-              id="pinkbird_sprite"
-            />
+            <img src="img/pinkbird.png" id="pinkbird_sprite"/>
           </div>
           <div id="punkbird_container">
-            <img
-              src="img/punkbird.png"
-              alt="punkbird_sprite"
-              id="punkbird_sprite"
-            />
+            <img src="img/punkbird.png" id="punkbird_sprite"/>
           </div>
           <div id="airplaneblue_container">
-            <img
-              src="img/airplaneblue.png"
-              alt="plane_sprite"
-              id="airplaneblue_sprite"
-            />
+            <img src="img/airplaneblue.png" id="airplaneblue_sprite"/>
           </div>
           <div id="airplanedarkblue_container">
-            <img
-              src="img/airplanedarkblue.png"
-              alt="darkblueplane_sprite"
-              id="airplanedarkblue_sprite"
-            />
+            <img src="img/airplanedarkblue.png" id="airplanedarkblue_sprite"/>
           </div>
         </div>
         <div id="game_ui">
-          <div id="score_board"></div>
+          <div id="score_board">
+            <span id="scorePoints">0</span>
+          </div>
           <div id="life_board">
-            <img src="heart.svg" alt="heart1" class="active_heart">
-            <img src="heart.svg" alt="heart2" class="active_heart">
-            <img src="heart.svg" alt="heart3" class="active_heart">
+            <img src="img/heart.svg" id="heart1" class="active_heart">
+            <img src="img/heart.svg" id="heart2" class="active_heart">
+            <img src="img/heart.svg" id="heart3" class="active_heart">
           </div>
           <div id="time_board"></div>
         </div>
       </div>
-      <div id="start"></div>
-      <div id="game_over"></div>
-      <div id="level_complete"></div>
+      <div id="start" class="hidden"></div>
+      <div id="game_over" class="hidden"></div>
+      <div id="level_complete" class="hidden"></div>
     </div>
     <script src="script.js"></script>
   </body>

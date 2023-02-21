@@ -35,7 +35,7 @@ img {
   width: 100%;
 }
 
-/* Game elements */
+/* Positioning of game elements */
 
 #grumpy_container {
   width: 5%;
@@ -73,13 +73,49 @@ img {
   rotate: -10deg;
 }
 
+/* UI */
+
+#game_ui {
+  position: absolute;
+  translate: 1540% 1240%;
+  color: white;
+  font-size: 2em;
+  font-family: sans-serif;
+  pointer-events: none;
+}
+
+#score_board {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: .1em;
+}
+
+#scorePoints {
+  white-space: nowrap;
+  text-align: right;
+}
+
+#life_board {
+  margin-block-start: .2em;
+  display: grid;
+  grid-template-columns: 1.2em 1.2em 1.2em;
+}
+
+.active_heart {
+   filter: drop-shadow(0 0 2px yellow);
+}
+
+.broken_heart {
+    filter: grayscale(75%) blur(.5px);
+}
+
 /* Animations and animation classes */
 
 .flying1 {
   animation-name: flying1;
   animation-duration: 10s;
   animation-timing-function: ease-in;
-  animation-iteration-count: 1;
+  animation-iteration-count: infinite;
   translate: -100% 0;
 }
 
