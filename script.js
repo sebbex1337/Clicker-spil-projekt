@@ -26,11 +26,16 @@ function start() {
 
 function incrementPoints() {
   points++;
-  displayincrementPoints();
+  displayPoints();
 }
 
-function displayincrementPoints() {
+function displayPoints() {
   document.querySelector("#scorePoints").textContent = points;
+}
+
+function decrementPoints() {
+  points--;
+  displayPoints();
 }
 
 function decrementLives() {
@@ -162,6 +167,7 @@ function blueplaneClick() {
   document.querySelector("#airplaneblue_container").addEventListener("animationend", blueplaneGone);
   // Remove life when clicked
   decrementLives();
+  decrementPoints();
 }
 
 function blueplaneGone() {
@@ -188,6 +194,7 @@ function darkblueplaneClick() {
   document.querySelector("#airplanedarkblue_container").addEventListener("animationend", darkblueplaneGone);
   // Remove life when clicked
   decrementLives();
+  decrementPoints();
 }
 
 function darkblueplaneGone() {
