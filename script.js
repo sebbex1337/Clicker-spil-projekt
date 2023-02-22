@@ -15,7 +15,6 @@ function start() {
 
   /* EventListeners */
   document.querySelector("#grumpy_container").addEventListener("click", clickGrumpy);
-
   document.querySelector("#airplaneblue_container").addEventListener("click", blueplaneClick);
 }
 
