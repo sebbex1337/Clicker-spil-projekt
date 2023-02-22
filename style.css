@@ -130,7 +130,7 @@ img {
 
 .flying2 {
   animation-name: flying2;
-  animation-duration: 10s;
+  animation-duration: 8s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   translate: -100% 0;

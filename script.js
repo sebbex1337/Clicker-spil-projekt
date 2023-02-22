@@ -15,8 +15,14 @@ function start() {
 
   /* EventListeners */
   document.querySelector("#grumpy_container").addEventListener("click", clickGrumpy);
+  document.querySelector("#fryingpanbird_container").addEventListener("click", fryingpanClick);
+  document.querySelector("#pinkbird_container").addEventListener("click", pinkClick);
+  document.querySelector("#punkbird_container").addEventListener("click", punkClick);
   document.querySelector("#airplaneblue_container").addEventListener("click", blueplaneClick);
+  document.querySelector("#airplanedarkblue_container").addEventListener("click", darkblueplaneClick);
 }
+
+/* Functions for incrementing and decrementing lives and points */
 
 function incrementPoints() {
   points++;
@@ -36,6 +42,9 @@ function displaydecrementLives() {
   document.querySelector("#heart" + lives).classList.remove("active_heart");
   document.querySelector("#heart" + lives).classList.add("broken_heart");
 }
+
+/* Functions for clickable sprites/containers */
+/* Bird functions */
 
 function clickGrumpy() {
   // Remove eventlistener
@@ -63,8 +72,88 @@ function grumpyGone() {
   document.querySelector("#grumpy_container").addEventListener("click", clickGrumpy);
 }
 
+function fryingpanClick() {
+  // Remove eventlistener
+  document.querySelector("#fryingpanbird_container").removeEventListener("click", fryingpanClick);
+  // Add pause and hit animations 
+  document.querySelector("#fryingpanbird_container").classList.add("paused");
+  document.querySelector("#fryingpanbird_sprite").classList.add("hit");
+  // Eventlistener for animationend
+  document.querySelector("#fryingpanbird_container").addEventListener("animationend", fryingpanGone);
+  // Add point on clicked
+  incrementPoints();
+}
+
+function fryingpanGone() {
+  // Remove eventlistener
+  document.querySelector("#fryingpanbird_container").removeEventListener("animationend", fryingpanGone);
+  // Remove hit animation and paused
+  document.querySelector("#fryingpanbird_sprite").classList.remove("hit");
+  document.querySelector("#fryingpanbird_container").classList.remove("paused");
+  // Reflow sprite using offsetWidth
+  document.querySelector("#fryingpanbird_container").classList.remove("flying2");
+  document.querySelector("#fryingpanbird_container").offsetWidth;
+  document.querySelector("#fryingpanbird_container").classList.add("flying2");
+  // Add ability to click again
+  document.querySelector("#fryingpanbird_container").addEventListener("click", fryingpanClick);
+}
+
+function pinkClick() {
+  // Remove eventlistener
+  document.querySelector("#pinkbird_container").removeEventListener("click", pinkClick);
+  // Add pause and hit animations 
+  document.querySelector("#pinkbird_container").classList.add("paused");
+  document.querySelector("#pinkbird_sprite").classList.add("hit");
+  // Eventlistener for animationend
+  document.querySelector("#pinkbird_container").addEventListener("animationend", pinkGone);
+  // Add point on clicked
+  incrementPoints();
+}
+
+function pinkGone() {
+  // Remove eventlistener
+  document.querySelector("#pinkbird_container").removeEventListener("animationend", pinkGone);
+  // Remove hit animation and paused
+  document.querySelector("#pinkbird_sprite").classList.remove("hit");
+  document.querySelector("#pinkbird_container").classList.remove("paused");
+  // Reflow sprite using offsetWidth
+  document.querySelector("#pinkbird_container").classList.remove("flying3");
+  document.querySelector("#pinkbird_container").offsetWidth;
+  document.querySelector("#pinkbird_container").classList.add("flying3");
+  // Add ability to click again
+  document.querySelector("#pinkbird_container").addEventListener("click", pinkClick);
+}
+
+function punkClick() {
+  // Remove eventlistener
+  document.querySelector("#punkbird_container").removeEventListener("click", punkClick);
+  // Add pause and hit animations 
+  document.querySelector("#punkbird_container").classList.add("paused");
+  document.querySelector("#punkbird_sprite").classList.add("hit");
+  // Eventlistener for animationend
+  document.querySelector("#punkbird_container").addEventListener("animationend", punkGone);
+  // Add point on clicked
+  incrementPoints();
+}
+
+function punkGone() {
+  // Remove eventlistener
+  document.querySelector("#punkbird_container").removeEventListener("animationend", punkGone);
+  // Remove hit animation and paused
+  document.querySelector("#punkbird_sprite").classList.remove("hit");
+  document.querySelector("#punkbird_container").classList.remove("paused");
+  // Reflow sprite using offsetWidth
+  document.querySelector("#punkbird_container").classList.remove("flying4");
+  document.querySelector("#punkbird_container").offsetWidth;
+  document.querySelector("#punkbird_container").classList.add("flying4");
+  // Add ability to click again
+  document.querySelector("#punkbird_container").addEventListener("click", punkClick);
+}
+
+/* Plane functions */
+
 function blueplaneClick() {
-    // Remove eventlistener
+  // Remove eventlistener
   document.querySelector("#airplaneblue_container").removeEventListener("click", blueplaneClick);
   // Add pause and hit animations
   document.querySelector("#airplaneblue_container").classList.add("paused");
@@ -89,10 +178,31 @@ function blueplaneGone() {
   document.querySelector("#airplaneblue_container").addEventListener("click", blueplaneClick);
 }
 
+function darkblueplaneClick() {
+  // Remove eventlistener
+  document.querySelector("#airplanedarkblue_container").removeEventListener("click", darkblueplaneClick);
+  // Add pause and hit animations
+  document.querySelector("#airplanedarkblue_container").classList.add("paused");
+  document.querySelector("#airplanedarkblue_sprite").classList.add("hit");
+  // Eventlistener for animationend
+  document.querySelector("#airplanedarkblue_container").addEventListener("animationend", darkblueplaneGone);
+  // Remove life when clicked
+  decrementLives();
+}
 
-
-
-
+function darkblueplaneGone() {
+  // Remove eventlistener
+  document.querySelector("#airplanedarkblue_container").removeEventListener("animationend", darkblueplaneGone);
+  // Remove hit animation and paused
+  document.querySelector("#airplanedarkblue_sprite").classList.remove("hit");
+  document.querySelector("#airplanedarkblue_container").classList.remove("paused");
+  // Reflow sprite using offsetWidth
+  document.querySelector("#airplanedarkblue_container").classList.remove("airplanedarkblue_fly");
+  document.querySelector("#airplanedarkblue_container").offsetWidth;
+  document.querySelector("#airplanedarkblue_container").classList.add("airplanedarkblue_fly");
+  // Add ability to click again
+  document.querySelector("#airplanedarkblue_container").addEventListener("click", darkblueplaneClick);
+}
 
 
 
