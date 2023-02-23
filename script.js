@@ -2,9 +2,11 @@
 window.addEventListener("load", start);
 
 let points = 0;
-let lives = 3;
+let lives = 0;
 
 function start() {
+  lives = 3;
+  points = 0;
   /* Start animations */
   document.querySelector("#grumpy_container").classList.add("flying1");
   document.querySelector("#fryingpanbird_container").classList.add("flying2");
@@ -22,11 +24,56 @@ function start() {
   document.querySelector("#airplanedarkblue_container").addEventListener("click", darkblueplaneClick);
 }
 
+function end() {
+  /* Remove eventlisteners */
+  document.querySelector("#grumpy_container").removeEventListener("animationend", grumpyGone);
+  document.querySelector("#fryingpanbird_container").removeEventListener("animationend", fryingpanGone);
+  document.querySelector("#pinkbird_container").removeEventListener("animationend", pinkGone);
+  document.querySelector("#punkbird_container").removeEventListener("animationend", punkGone);
+  document.querySelector("#airplaneblue_container").removeEventListener("animationend", blueplaneGone);
+  document.querySelector("#airplanedarkblue_container").removeEventListener("animationend", darkblueplaneGone);
+  document.querySelector("#grumpy_container").removeEventListener("click", clickGrumpy);
+  document.querySelector("#fryingpanbird_container").removeEventListener("click", fryingpanClick);
+  document.querySelector("#pinkbird_container").removeEventListener("click", pinkClick);
+  document.querySelector("#punkbird_container").removeEventListener("click", punkClick);
+  document.querySelector("#airplaneblue_container").removeEventListener("click", blueplaneClick);
+  document.querySelector("#airplanedarkblue_container").removeEventListener("click", darkblueplaneClick);
+  /* Stop animations */
+  document.querySelector("#grumpy_container").classList.add("paused");
+  document.querySelector("#fryingpanbird_container").classList.add("paused");
+  document.querySelector("#pinkbird_container").classList.add("paused");
+  document.querySelector("#punkbird_container").classList.add("paused");
+  document.querySelector("#airplaneblue_container").classList.add("paused");
+  document.querySelector("#airplanedarkblue_container").classList.add("paused");
+/*   document.querySelector("#grumpy_container").classList.remove("flying1");
+  document.querySelector("#fryingpanbird_container").classList.remove("flying2");
+  document.querySelector("#pinkbird_container").classList.remove("flying3");
+  document.querySelector("#punkbird_container").classList.remove("flying4");
+  document.querySelector("#airplaneblue_container").classList.remove("airplaneblue_fly");
+  document.querySelector("#airplanedarkblue_container").classList.remove("airplanedarkblue_fly"); */
+  
+
+}
+
+/* Game over and level complete functions */
+function gameOver() {
+  document.querySelector("#game_over").classList.remove("hidden");
+  end();
+}
+
+function levelComplete() {
+  document.querySelector("#level_complete").classList.remove("hidden");
+  end();
+}
+
 /* Functions for incrementing and decrementing lives and points */
 
 function incrementPoints() {
-  points++;
-  displayPoints();
+  if (points + 1 >= 10) {
+    levelComplete();
+  }
+    points++;
+    displayPoints();
 }
 
 function displayPoints() {
@@ -39,8 +86,11 @@ function decrementPoints() {
 }
 
 function decrementLives() {
-  displaydecrementLives();
-  lives--;
+  if (lives <= 1) {
+    gameOver();
+  }
+    displaydecrementLives();
+    lives--;
 }
 
 function displaydecrementLives() {
@@ -210,3 +260,4 @@ function darkblueplaneGone() {
   // Add ability to click again
   document.querySelector("#airplanedarkblue_container").addEventListener("click", darkblueplaneClick);
 }
+
