@@ -109,8 +109,8 @@ function incrementPoints() {
   if (points + 1 >= 10) {
     levelComplete();
   }
-    points++;
-    displayPoints();
+  points++;
+  displayPoints();
 }
 
 function displayPoints() {
@@ -126,8 +126,8 @@ function decrementLives() {
   if (lives <= 1) {
     gameOver();
   }
-    displaydecrementLives();
-    lives--;
+  displaydecrementLives();
+  lives--;
 }
 
 function displaydecrementLives() {
