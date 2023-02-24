@@ -57,6 +57,11 @@ body {
   display: none;
 }
 
+.replayButton {
+  width: 50%;
+  padding-left: 2em;
+}
+
 img {
   width: 100%;
 }
