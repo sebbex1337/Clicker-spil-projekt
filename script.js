@@ -37,6 +37,13 @@ function start() {
 
   /* EventListeners */
   addListeners();
+
+  grumpyBird.addEventListener("animationiteration", birdRestart);
+  fryingBird.addEventListener("animationiteration", birdRestart);
+  pinkBird.addEventListener("animationiteration", birdRestart);
+  punkBird.addEventListener("animationiteration", birdRestart);
+  bluePlane.addEventListener("animationiteration", planeRestart);
+  darkBluePlane.addEventListener("animationiteration", planeRestart);
 }
 
 function startAnimations() {
