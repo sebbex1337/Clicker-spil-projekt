@@ -210,15 +210,15 @@ img {
   }
 }
 
-.airplaneblue_fly {
-  animation-name: airplaneblue_fly;
+.flying5 {
+  animation-name: flying5;
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 850% 0;
 }
 
-@keyframes airplaneblue_fly {
+@keyframes flying5 {
   0% {
     transform: translate(0, 0);
   }
@@ -227,15 +227,15 @@ img {
   }
 }
 
-.airplanedarkblue_fly {
-  animation-name: airplanedarkblue_fly;
+.flying6 {
+  animation-name: flying6;
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 1000% 200%;
 }
 
-@keyframes airplanedarkblue_fly {
+@keyframes flying6 {
   0% {
     transform: translate(0, 0);
   }
