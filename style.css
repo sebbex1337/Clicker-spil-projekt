@@ -88,10 +88,6 @@ img {
   position: absolute;
 }
 
-#punkbird_sprite {
-  transform: scaleX(-1);
-}
-
 #airplaneblue_container {
   width: 12%;
   position: absolute;
@@ -145,7 +141,7 @@ img {
 .flying1 {
   animation-name: flying1;
   animation-duration: 6s;
-  animation-timing-function: ease-in;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: -100% 0;
 }
@@ -161,8 +157,8 @@ img {
 
 .flying2 {
   animation-name: flying2;
-  animation-duration: 7s;
-  animation-timing-function: ease-in;
+  animation-duration: 6s;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: -100% 0;
 }
@@ -179,7 +175,7 @@ img {
 .flying3 {
   animation-name: flying3;
   animation-duration: 6s;
-  animation-timing-function: ease-in;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: -100% 0;
 }
@@ -195,10 +191,10 @@ img {
 
 .flying4 {
   animation-name: flying4;
-  animation-duration: 7s;
-  animation-timing-function: ease-in;
+  animation-duration: 6s;
+  animation-timing-function: linear;
   animation-iteration-count: infinite;
-  translate: 2000% 0;
+  translate: -100% 0;
 }
 
 @keyframes flying4 {
@@ -206,7 +202,7 @@ img {
     transform: translate(0, 250%);
   }
   100% {
-    transform: translate(-2500%, 500%);
+    transform: translate(2500%, 500%);
   }
 }
 
@@ -215,7 +211,7 @@ img {
   animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  translate: 850% 0;
+  translate: 1000% 0;
 }
 
 @keyframes plane1 {
@@ -229,7 +225,7 @@ img {
 
 .plane2 {
   animation-name: plane2;
-  animation-duration: 10s;
+  animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 1000% 200%;
