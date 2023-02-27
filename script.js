@@ -37,31 +37,31 @@ function start() {
   fryingBird.classList.add("flying2");
   pinkBird.classList.add("flying3");
   punkBird.classList.add("flying4");
-  bluePlane.classList.add("flying5");
-  darkBluePlane.classList.add("flying6");
+  bluePlane.classList.add("plane1");
+  darkBluePlane.classList.add("plane2");
 
   /* EventListeners */
-  grumpyBird.addEventListener("click", clickGrumpy);
+  grumpyBird.addEventListener("click", clickBird);
   fryingBird.addEventListener("click", fryingpanClick);
   pinkBird.addEventListener("click", pinkClick);
   punkBird.addEventListener("click", punkClick);
-  bluePlane.addEventListener("click", blueplaneClick);
+  bluePlane.addEventListener("click", planeClick);
   darkBluePlane.addEventListener("click", darkblueplaneClick);
 }
 
 function end() {
   /* Remove eventlisteners */
-  grumpyBird.removeEventListener("animationend", grumpyGone);
+  grumpyBird.removeEventListener("animationend", birdGone);
   fryingBird.removeEventListener("animationend", fryingpanGone);
   pinkBird.removeEventListener("animationend", pinkGone);
   punkBird.removeEventListener("animationend", punkGone);
-  bluePlane.removeEventListener("animationend", blueplaneGone);
+  bluePlane.removeEventListener("animationend", planeGone);
   darkBluePlane.removeEventListener("animationend", darkblueplaneGone);
-  grumpyBird.removeEventListener("click", clickGrumpy);
+  grumpyBird.removeEventListener("click", clickBird);
   fryingBird.removeEventListener("click", fryingpanClick);
   pinkBird.removeEventListener("click", pinkClick);
   punkBird.removeEventListener("click", punkClick);
-  bluePlane.removeEventListener("click", blueplaneClick);
+  bluePlane.removeEventListener("click", planeClick);
   darkBluePlane.removeEventListener("click", darkblueplaneClick);
 
   /* Stop animations */
@@ -93,8 +93,8 @@ function restart() {
   fryingBird.classList.remove("flying2");
   pinkBird.classList.remove("flying3");
   punkBird.classList.remove("flying4");
-  bluePlane.classList.remove("flying5");
-  darkBluePlane.classList.remove("flying6");
+  bluePlane.classList.remove("plane1");
+  darkBluePlane.classList.remove("plane2");
 
   /* Remove hit animations if any */
   grumpyBird.classList.remove("hit");
@@ -169,36 +169,38 @@ function resetLivesDisplay() {
 /* Functions for clickable sprites/containers */
 /* Bird functions */
 
-function clickGrumpy() {
+function clickBird() {
+  let bird = this;
   // Remove eventlistener
-  grumpyBird.removeEventListener("click", clickGrumpy);
+  bird.removeEventListener("click", clickBird);
 
   // Add pause and hit animations
-  grumpyBird.classList.add("paused");
-  grumpySprite.classList.add("hit");
+  bird.classList.add("paused");
+  bird.querySelector("img").classList.add("hit");
 
   // Eventlistener for animationend
-  grumpyBird.addEventListener("animationend", grumpyGone);
+  bird.addEventListener("animationend", birdGone);
 
   // Add point on click
   incrementPoints();
 }
 
-function grumpyGone() {
+function birdGone() {
+  let bird = this;
   // Remove eventlistener
-  grumpyBird.removeEventListener("animationend", grumpyGone);
+  grumpyBird.removeEventListener("animationend", birdGone);
 
   // Remove hit animation and paused
-  grumpySprite.classList.remove("hit");
-  grumpyBird.classList.remove("paused");
+  bird.querySelector("img").classList.remove("hit");
+  bird.classList.remove("paused");
 
   // Reflow sprite using offsetWidth
-  grumpyBird.classList.remove("flying1");
-  grumpyBird.offsetWidth;
-  grumpyBird.classList.add("flying1");
+  bird.classList.remove("flying1");
+  bird.offsetWidth;
+  bird.classList.add("flying1");
 
   // Add ability to click again
-  grumpyBird.addEventListener("click", clickGrumpy);
+  bird.addEventListener("click", clickBird);
 }
 
 function fryingpanClick() {
@@ -299,37 +301,39 @@ function punkGone() {
 
 /* Plane functions */
 
-function blueplaneClick() {
+function planeClick() {
+  let plane = this;
   // Remove eventlistener
-  bluePlane.removeEventListener("click", blueplaneClick);
+  plane.removeEventListener("click", planeClick);
 
   // Add pause and hit animations
-  bluePlane.classList.add("paused");
-  blueSprite.classList.add("hit");
+  plane.classList.add("paused");
+  plane.querySelector("img").classList.add("hit");
 
   // Eventlistener for animationend
-  bluePlane.addEventListener("animationend", blueplaneGone);
+  plane.addEventListener("animationend", planeGone);
 
   // Remove life when clicked
   decrementLives();
   decrementPoints();
 }
 
-function blueplaneGone() {
+function planeGone() {
+  let plane = this;
   // Remove eventlistener
-  bluePlane.removeEventListener("animationend", blueplaneGone);
+  plane.removeEventListener("animationend", planeGone);
 
   // Remove hit animation and paused
-  blueSprite.classList.remove("hit");
-  bluePlane.classList.remove("paused");
+  plane.querySelector("img").classList.remove("hit");
+  plane.classList.remove("paused");
 
   // Reflow sprite using offsetWidth
-  bluePlane.classList.remove("flying5");
-  bluePlane.offsetWidth;
-  bluePlane.classList.add("flying5");
+  plane.classList.remove("plane1");
+  plane.offsetWidth;
+  plane.classList.add("plane1");
 
   // Add ability to click again
-  bluePlane.addEventListener("click", blueplaneClick);
+  plane.addEventListener("click", planeClick);
 }
 
 function darkblueplaneClick() {
@@ -357,9 +361,9 @@ function darkblueplaneGone() {
   darkBluePlane.classList.remove("paused");
 
   // Reflow sprite using offsetWidth
-  darkBluePlane.classList.remove("flying6");
+  darkBluePlane.classList.remove("plane2");
   darkBluePlane.offsetWidth;
-  darkBluePlane.classList.add("flying6");
+  darkBluePlane.classList.add("plane2");
 
   // Add ability to click again
   darkBluePlane.addEventListener("click", darkblueplaneClick);

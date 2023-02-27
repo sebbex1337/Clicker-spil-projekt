@@ -144,7 +144,7 @@ img {
 
 .flying1 {
   animation-name: flying1;
-  animation-duration: 7s;
+  animation-duration: 6s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   translate: -100% 0;
@@ -161,7 +161,7 @@ img {
 
 .flying2 {
   animation-name: flying2;
-  animation-duration: 8s;
+  animation-duration: 7s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   translate: -100% 0;
@@ -178,7 +178,7 @@ img {
 
 .flying3 {
   animation-name: flying3;
-  animation-duration: 7s;
+  animation-duration: 6s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   translate: -100% 0;
@@ -195,7 +195,7 @@ img {
 
 .flying4 {
   animation-name: flying4;
-  animation-duration: 8s;
+  animation-duration: 7s;
   animation-timing-function: ease-in;
   animation-iteration-count: infinite;
   translate: 2000% 0;
@@ -210,15 +210,15 @@ img {
   }
 }
 
-.flying5 {
-  animation-name: flying5;
-  animation-duration: 10s;
+.plane1 {
+  animation-name: plane1;
+  animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 850% 0;
 }
 
-@keyframes flying5 {
+@keyframes plane1 {
   0% {
     transform: translate(0, 0);
   }
@@ -227,20 +227,54 @@ img {
   }
 }
 
-.flying6 {
-  animation-name: flying6;
+.plane2 {
+  animation-name: plane2;
   animation-duration: 10s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 1000% 200%;
 }
 
-@keyframes flying6 {
+@keyframes plane2 {
   0% {
     transform: translate(0, 0);
   }
   100% {
     transform: translate(-2500%, -800%);
+  }
+}
+
+.plane3 {
+  animation-name: plane3;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  translate: 1000% 400%;
+}
+
+@keyframes plane3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-2500%, -800%)
+  }
+}
+
+.plane4 {
+  animation-name: plane4;
+  animation-duration: 7s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  translate: 1000% 600%;
+}
+
+@keyframes plane4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-2500%, -800%)
   }
 }
 
