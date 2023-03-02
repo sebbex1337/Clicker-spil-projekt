@@ -1,5 +1,5 @@
 "use strict";
-window.addEventListener("load", start);
+window.addEventListener("load", ready);
 
 let points = 0;
 let lives = 0;
@@ -19,6 +19,10 @@ const pinkSprite = document.querySelector("#pinkbird_sprite");
 const punkSprite = document.querySelector("#punkbird_sprite");
 const blueSprite = document.querySelector("#airplaneblue_sprite");
 const darkBlueSprite = document.querySelector("#airplanedarkblue_sprite");
+
+function ready() {
+  document.querySelector("#start-btn").addEventListener("click", start);
+}
 
 function start() {
   /* Remove gameOver and levelComplete */
@@ -104,12 +108,12 @@ function restart() {
   punkBird.classList.remove("paused");
   bluePlane.classList.remove("paused");
   darkBluePlane.classList.remove("paused");
-  grumpyBird.classList.remove("flying1");
-  fryingBird.classList.remove("flying2");
-  pinkBird.classList.remove("flying3");
-  punkBird.classList.remove("flying4");
-  bluePlane.classList.remove("plane1");
-  darkBluePlane.classList.remove("plane2");
+  grumpyBird.classList.remove("flying1", "flying2", "flying3", "flying4");
+  fryingBird.classList.remove("flying1", "flying2", "flying3", "flying4");
+  pinkBird.classList.remove("flying1", "flying2", "flying3", "flying4");
+  punkBird.classList.remove("flying1", "flying2", "flying3", "flying4");
+  bluePlane.classList.remove("plane1", "plane2", "plane3", "plane4");
+  darkBluePlane.classList.remove("plane1", "plane2", "plane3", "plane4");
 
   /* Remove hit animations if any */
   grumpyBird.classList.remove("hit");
@@ -118,6 +122,7 @@ function restart() {
   punkSprite.classList.remove("hit");
   blueSprite.classList.remove("hit");
   darkBlueSprite.classList.remove("hit");
+
   start();
 }
 
