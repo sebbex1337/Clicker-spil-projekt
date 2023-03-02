@@ -145,14 +145,7 @@ function restartAnimations() {
   punkBird.offsetWidth;
   bluePlane.offsetWidth;
   darkBluePlane.offsetWidth;
-  /* Remove hit animations if any */
-  grumpyBird.classList.remove("hit");
-  fryingSprite.classList.remove("hit");
-  pinkSprite.classList.remove("hit");
-  punkSprite.classList.remove("hit");
-  blueSprite.classList.remove("hit");
-  darkBlueSprite.classList.remove("hit");
-
+  /* Reset timer animation */
   document.querySelector("#time_sprite").classList.remove("shrink");
   document.querySelector("#time_sprite").offsetWidth;
 }
