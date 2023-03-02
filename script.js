@@ -76,6 +76,7 @@ function startTimer() {
 }
 
 function timeIsUp() {
+  document.querySelector("#time_sprite").removeEventListener("animationend", timeIsUp);
   if (points >= 10) {
     levelComplete();
   } else {
@@ -150,12 +151,6 @@ function restartAnimations() {
   document.querySelector("#time_sprite").offsetWidth;
 }
 
-function timerStop() {
-  document.querySelector("#time_sprite").removeEventListener("animationend", timerStop);
-  document.querySelector("#time_sprite").classList.remove("shrink");
-  gameOver();
-}
-
 /* Game over and level complete functions */
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
@@ -170,9 +165,6 @@ function levelComplete() {
 /* Functions for incrementing and decrementing lives and points */
 
 function incrementPoints() {
-  if (points + 1 >= 10) {
-    levelComplete();
-  }
   points++;
   displayPoints();
 }
