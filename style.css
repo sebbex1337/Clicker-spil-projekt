@@ -55,8 +55,7 @@ body {
 .hidden,
 #game_over.hidden,
 #level_complete.hidden,
-#start.hidden,
-#game.hidden {
+#start.hidden {
   display: none;
 }
 
@@ -112,6 +111,24 @@ img {
   font-size: 2em;
   font-family: sans-serif;
   pointer-events: none;
+}
+
+#time_container {
+  position: absolute;
+  width: 20%;
+  aspect-ratio: 6/30;
+  border: 2px solid black;
+  background-color: rgba(208, 204, 204, 0.383);
+  translate: 650% -30%;
+  rotate: 90deg;
+}
+
+#time_sprite {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: limegreen;
+  transform-origin: center bottom;
 }
 
 #score_board {
@@ -329,4 +346,26 @@ button {
   border: 10px solid #ffc72e;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.shrink {
+  animation-name: shrink_kf;
+  animation-duration: 20s;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes shrink_kf {
+  0% {
+    scale: 1 1;
+    background-color: limegreen;
+  }
+  50% {
+    background-color: rgb(255, 230, 0);
+  }
+  100% {
+    scale: 1 0;
+    background-color: red;
+  }
 }

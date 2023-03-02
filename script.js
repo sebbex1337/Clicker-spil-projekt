@@ -35,6 +35,7 @@ function start() {
   points = 0;
   displayPoints();
   resetLivesDisplay();
+  document.querySelector("#time_sprite").classList.add("shrink");
 
   /* Start animations */
   startAnimations();
@@ -48,6 +49,8 @@ function start() {
   punkBird.addEventListener("animationiteration", birdRestart);
   bluePlane.addEventListener("animationiteration", planeRestart);
   darkBluePlane.addEventListener("animationiteration", planeRestart);
+
+  document.querySelector("#time_sprite").addEventListener("animationend", timerStop);
 }
 
 function startAnimations() {
@@ -124,6 +127,12 @@ function restart() {
   darkBlueSprite.classList.remove("hit");
 
   start();
+}
+
+function timerStop() {
+  document.querySelector("#time_sprite").removeEventListener("animationend", timerStop);
+  document.querySelector("#time_sprite").classList.remove("shrink");
+  gameOver();
 }
 
 /* Game over and level complete functions */
