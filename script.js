@@ -22,35 +22,33 @@ const darkBlueSprite = document.querySelector("#airplanedarkblue_sprite");
 
 function ready() {
   document.querySelector("#start-btn").addEventListener("click", start);
+  document.querySelector("#gameOverButton").addEventListener("click", showStartScreen);
+  document.querySelector("#level_complete").addEventListener("click", showStartScreen);
+}
+
+function showStartScreen() {
+  document.querySelector("#start").classList.remove("hidden");
+  document.querySelector("#game_over").classList.add("hidden");
+  document.querySelector("#level_complete").classList.add("hidden");
 }
 
 function start() {
-  /* Remove gameOver and levelComplete */
+  /* Remove start, gameOver and levelComplete */
   document.querySelector("#start").classList.add("hidden");
   document.querySelector("#game_over").classList.add("hidden");
   document.querySelector("#level_complete").classList.add("hidden");
 
+  restartAnimations();
   /* Reset lives and points */
-  lives = 3;
-  points = 0;
-  displayPoints();
-  resetLivesDisplay();
-  document.querySelector("#time_sprite").classList.add("shrink");
+  resetLives();
+  resetPoints();
+  startTimer();
 
   /* Start animations */
   startAnimations();
 
   /* EventListeners */
   addListeners();
-
-  grumpyBird.addEventListener("animationiteration", birdRestart);
-  fryingBird.addEventListener("animationiteration", birdRestart);
-  pinkBird.addEventListener("animationiteration", birdRestart);
-  punkBird.addEventListener("animationiteration", birdRestart);
-  bluePlane.addEventListener("animationiteration", planeRestart);
-  darkBluePlane.addEventListener("animationiteration", planeRestart);
-
-  document.querySelector("#time_sprite").addEventListener("animationend", timerStop);
 }
 
 function startAnimations() {
@@ -62,16 +60,47 @@ function startAnimations() {
   darkBluePlane.classList.add("plane2");
 }
 
+function resetLives() {
+  lives = 3;
+  resetLivesDisplay();
+}
+
+function resetPoints() {
+  points = 0;
+  displayPoints();
+}
+
+function startTimer() {
+  document.querySelector("#time_sprite").classList.add("shrink");
+  document.querySelector("#time_sprite").addEventListener("animationend", timeIsUp);
+}
+
+function timeIsUp() {
+  if (points >= 10) {
+    levelComplete();
+  } else {
+    gameOver();
+  }
+}
+
 function addListeners() {
+  /* Clickable containers */
   grumpyBird.addEventListener("click", clickBird);
   fryingBird.addEventListener("click", clickBird);
   pinkBird.addEventListener("click", clickBird);
   punkBird.addEventListener("click", clickBird);
   bluePlane.addEventListener("click", planeClick);
   darkBluePlane.addEventListener("click", planeClick);
+  /* Random position on animationend */
+  grumpyBird.addEventListener("animationiteration", birdRestart);
+  fryingBird.addEventListener("animationiteration", birdRestart);
+  pinkBird.addEventListener("animationiteration", birdRestart);
+  punkBird.addEventListener("animationiteration", birdRestart);
+  bluePlane.addEventListener("animationiteration", planeRestart);
+  darkBluePlane.addEventListener("animationiteration", planeRestart);
 }
 
-function end() {
+function stopGame() {
   /* Remove eventlisteners */
   grumpyBird.removeEventListener("animationend", birdGone);
   fryingBird.removeEventListener("animationend", birdGone);
@@ -93,18 +122,11 @@ function end() {
   punkBird.classList.add("paused");
   bluePlane.classList.add("paused");
   darkBluePlane.classList.add("paused");
-
-  /* Eventlistener for replay button */
-  document.querySelector("#gameOverButton").addEventListener("click", restart);
-  document.querySelector("#levelCompleteButton").addEventListener("click", restart);
 }
 
-function restart() {
-  /* Remove eventlisteners */
-  document.querySelector("#gameOverButton").removeEventListener("click", restart);
-  document.querySelector("#levelCompleteButton").removeEventListener("click", restart);
 
-  /* Remove all classes from containers */
+function restartAnimations() {
+  /* Remove all classes from containers and force reflow */
   grumpyBird.classList.remove("paused");
   fryingBird.classList.remove("paused");
   pinkBird.classList.remove("paused");
@@ -117,7 +139,12 @@ function restart() {
   punkBird.classList.remove("flying1", "flying2", "flying3", "flying4");
   bluePlane.classList.remove("plane1", "plane2", "plane3", "plane4");
   darkBluePlane.classList.remove("plane1", "plane2", "plane3", "plane4");
-
+  grumpyBird.offsetWidth;
+  fryingBird.offsetWidth;
+  pinkBird.offsetWidth;
+  punkBird.offsetWidth;
+  bluePlane.offsetWidth;
+  darkBluePlane.offsetWidth;
   /* Remove hit animations if any */
   grumpyBird.classList.remove("hit");
   fryingSprite.classList.remove("hit");
@@ -126,7 +153,8 @@ function restart() {
   blueSprite.classList.remove("hit");
   darkBlueSprite.classList.remove("hit");
 
-  start();
+  document.querySelector("#time_sprite").classList.remove("shrink");
+  document.querySelector("#time_sprite").offsetWidth;
 }
 
 function timerStop() {
@@ -138,12 +166,12 @@ function timerStop() {
 /* Game over and level complete functions */
 function gameOver() {
   document.querySelector("#game_over").classList.remove("hidden");
-  end();
+  stopGame();
 }
 
 function levelComplete() {
   document.querySelector("#level_complete").classList.remove("hidden");
-  end();
+  stopGame();
 }
 
 /* Functions for incrementing and decrementing lives and points */
