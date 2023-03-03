@@ -156,11 +156,10 @@ img {
     filter: grayscale(75%) blur(.5px);
 }
 
-/* Animations and animation classes */
+/* Animations and keyframes */
 
 .flying1 {
   animation-name: flying1;
-  animation-duration: 6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: -100% 0;
@@ -177,7 +176,6 @@ img {
 
 .flying2 {
   animation-name: flying2;
-  animation-duration: 6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: -100% 0;
@@ -194,7 +192,6 @@ img {
 
 .flying3 {
   animation-name: flying3;
-  animation-duration: 6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: -100% 0;
@@ -211,7 +208,6 @@ img {
 
 .flying4 {
   animation-name: flying4;
-  animation-duration: 6s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: -100% 0;
@@ -228,7 +224,6 @@ img {
 
 .plane1 {
   animation-name: plane1;
-  animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 1000% 0;
@@ -245,7 +240,6 @@ img {
 
 .plane2 {
   animation-name: plane2;
-  animation-duration: 8s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 1000% 200%;
@@ -262,7 +256,6 @@ img {
 
 .plane3 {
   animation-name: plane3;
-  animation-duration: 7s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 1000% 400%;
@@ -279,7 +272,6 @@ img {
 
 .plane4 {
   animation-name: plane4;
-  animation-duration: 7s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
   translate: 1000% 600%;
@@ -368,4 +360,24 @@ button {
     scale: 1 0;
     background-color: red;
   }
+}
+
+.speed1 {
+  animation-duration: 3s;
+}
+
+.speed2 {
+  animation-duration: 6s;
+}
+
+.speed3 {
+  animation-duration: 5s;
+}
+
+.speed4 {
+  animation-duration: 4s;
+}
+
+.speed5 {
+  animation-duration: 7s;
 }

@@ -58,6 +58,12 @@ function startAnimations() {
   punkBird.classList.add("flying4");
   bluePlane.classList.add("plane1");
   darkBluePlane.classList.add("plane2");
+  grumpyBird.classList.add("speed2");
+  fryingBird.classList.add("speed2");
+  pinkBird.classList.add("speed2");
+  punkBird.classList.add("speed2");
+  bluePlane.classList.add("speed2");
+  darkBluePlane.classList.add("speed2");
 }
 
 function resetLives() {
@@ -128,18 +134,12 @@ function stopGame() {
 
 function restartAnimations() {
   /* Remove all classes from containers and force reflow */
-  grumpyBird.classList.remove("paused");
-  fryingBird.classList.remove("paused");
-  pinkBird.classList.remove("paused");
-  punkBird.classList.remove("paused");
-  bluePlane.classList.remove("paused");
-  darkBluePlane.classList.remove("paused");
-  grumpyBird.classList.remove("flying1", "flying2", "flying3", "flying4");
-  fryingBird.classList.remove("flying1", "flying2", "flying3", "flying4");
-  pinkBird.classList.remove("flying1", "flying2", "flying3", "flying4");
-  punkBird.classList.remove("flying1", "flying2", "flying3", "flying4");
-  bluePlane.classList.remove("plane1", "plane2", "plane3", "plane4");
-  darkBluePlane.classList.remove("plane1", "plane2", "plane3", "plane4");
+  grumpyBird.classList.remove("paused", "flying1", "flying2", "flying3", "flying4", "speed1", "speed2", "speed3", "speed4", "speed5");
+  fryingBird.classList.remove("paused", "flying1", "flying2", "flying3", "flying4", "speed1", "speed2", "speed3", "speed4", "speed5");
+  pinkBird.classList.remove("paused", "flying1", "flying2", "flying3", "flying4", "speed1", "speed2", "speed3", "speed4", "speed5");
+  punkBird.classList.remove("paused", "flying1", "flying2", "flying3", "flying4", "speed1", "speed2", "speed3", "speed4", "speed5");
+  bluePlane.classList.remove("paused", "plane1", "plane2", "plane3", "plane4", "speed1", "speed2", "speed3", "speed4", "speed5");
+  darkBluePlane.classList.remove("paused", "plane1", "plane2", "plane3", "plane4", "speed1", "speed2", "speed3", "speed4", "speed5");
   grumpyBird.offsetWidth;
   fryingBird.offsetWidth;
   pinkBird.offsetWidth;
@@ -243,10 +243,12 @@ function birdGone() {
 
 function birdRestart() {
   const bird = this;
-  bird.classList.remove("flying1", "flying2", "flying3", "flying4");
+  bird.classList.remove("flying1", "flying2", "flying3", "flying4", "speed1", "speed2", "speed3", "speed4", "speed5");
   bird.offsetWidth;
-  let fly = Math.floor(Math.random() * 4) + 1;
+  const fly = Math.floor(Math.random() * 4) + 1;
   bird.classList.add("flying" + fly);
+  const speed = Math.floor(Math.random() * 5) + 1;
+  bird.classList.add("speed" + speed);
 }
 
 /* Plane functions */
@@ -286,9 +288,11 @@ function planeGone() {
 
 function planeRestart() {
   const plane = this;
-  plane.classList.remove("plane1", "plane2", "plane3", "plane4");
+  plane.classList.remove("plane1", "plane2", "plane3", "plane4", "speed1", "speed2", "speed3", "speed4", "speed5");
   plane.offsetWidth;
   let fly = Math.floor(Math.random() * 4) + 1;
   plane.classList.add("plane" + fly);
+  const speed = Math.floor(Math.random() * 5) + 1;
+  plane.classList.add("speed" + speed);
 }
 
