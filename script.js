@@ -134,7 +134,7 @@ function timeIsUp() {
 
 function playSound() {
   document.querySelector("#backgroundSound").currentTime = 0;
-  document.querySelector("#backgroundSound").volume = 0.5;
+  document.querySelector("#backgroundSound").volume = 0.2;
   document.querySelector("#backgroundSound").play();
 }
 
@@ -232,6 +232,8 @@ function clickBird() {
 
   // Add point on click
   incrementPoints();
+  document.querySelector("#birdSound").currentTime = 0;
+  document.querySelector("#birdSound").play();
 }
 
 function birdGone() {
@@ -277,6 +279,9 @@ function planeClick() {
   // Remove life when clicked
   decrementLives();
   decrementPoints();
+
+  document.querySelector("#planeSound").currentTime = 0;
+  document.querySelector("#planeSound").play();
 }
 
 function planeGone() {
