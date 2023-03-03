@@ -22,6 +22,7 @@ const darkBlueSprite = document.querySelector("#airplanedarkblue_sprite");
 
 function ready() {
   document.querySelector("#start-btn").addEventListener("click", start);
+  document.querySelector("#start-btn").addEventListener("click", playSound);
   document.querySelector("#gameOverButton").addEventListener("click", showStartScreen);
   document.querySelector("#level_complete").addEventListener("click", showStartScreen);
 }
@@ -51,21 +52,7 @@ function start() {
   addListeners();
 }
 
-function startAnimations() {
-  grumpyBird.classList.add("flying1");
-  fryingBird.classList.add("flying2");
-  pinkBird.classList.add("flying3");
-  punkBird.classList.add("flying4");
-  bluePlane.classList.add("plane1");
-  darkBluePlane.classList.add("plane2");
-  grumpyBird.classList.add("speed2");
-  fryingBird.classList.add("speed2");
-  pinkBird.classList.add("speed2");
-  punkBird.classList.add("speed2");
-  bluePlane.classList.add("speed2");
-  darkBluePlane.classList.add("speed2");
-}
-
+/* Game logic */
 function resetLives() {
   lives = 3;
   resetLivesDisplay();
@@ -74,6 +61,61 @@ function resetLives() {
 function resetPoints() {
   points = 0;
   displayPoints();
+}
+
+/* Game over and level complete functions */
+function gameOver() {
+  document.querySelector("#game_over").classList.remove("hidden");
+  stopGame();
+}
+
+function levelComplete() {
+  document.querySelector("#level_complete").classList.remove("hidden");
+  stopGame();
+}
+
+/* Functions for incrementing and decrementing lives and points */
+function incrementPoints() {
+  points++;
+  displayPoints();
+}
+
+function displayPoints() {
+  document.querySelector("#scorePoints").textContent = points;
+}
+
+function decrementPoints() {
+  points--;
+  displayPoints();
+}
+
+function decrementLives() {
+  if (lives <= 1) {
+    gameOver();
+  }
+  displaydecrementLives();
+  lives--;
+}
+
+function displaydecrementLives() {
+  document.querySelector("#heart" + lives).classList.remove("active_heart");
+  document.querySelector("#heart" + lives).classList.add("broken_heart");
+}
+
+
+function resetLivesDisplay() {
+  /* Remove all classes from hearts */
+  document.querySelector("#heart1").classList.remove("broken_heart")
+  document.querySelector("#heart2").classList.remove("broken_heart")
+  document.querySelector("#heart3").classList.remove("broken_heart")
+  document.querySelector("#heart1").classList.remove("active_heart")
+  document.querySelector("#heart2").classList.remove("active_heart")
+  document.querySelector("#heart3").classList.remove("active_heart")
+  
+  /* Add active hearts back */
+  document.querySelector("#heart1").classList.add("active_heart")
+  document.querySelector("#heart2").classList.add("active_heart")
+  document.querySelector("#heart3").classList.add("active_heart")
 }
 
 function startTimer() {
@@ -88,6 +130,12 @@ function timeIsUp() {
   } else {
     gameOver();
   }
+}
+
+function playSound() {
+  document.querySelector("#backgroundSound").currentTime = 0;
+  document.querySelector("#backgroundSound").volume = 0.5;
+  document.querySelector("#backgroundSound").play();
 }
 
 function addListeners() {
@@ -121,7 +169,7 @@ function stopGame() {
   punkBird.removeEventListener("click", clickBird);
   bluePlane.removeEventListener("click", planeClick);
   darkBluePlane.removeEventListener("click", planeClick);
-
+  
   /* Stop animations */
   grumpyBird.classList.add("paused");
   fryingBird.classList.add("paused");
@@ -131,6 +179,20 @@ function stopGame() {
   darkBluePlane.classList.add("paused");
 }
 
+function startAnimations() {
+  grumpyBird.classList.add("flying1");
+  fryingBird.classList.add("flying2");
+  pinkBird.classList.add("flying3");
+  punkBird.classList.add("flying4");
+  bluePlane.classList.add("plane1");
+  darkBluePlane.classList.add("plane2");
+  grumpyBird.classList.add("speed2");
+  fryingBird.classList.add("speed2");
+  pinkBird.classList.add("speed2");
+  punkBird.classList.add("speed2");
+  bluePlane.classList.add("speed2");
+  darkBluePlane.classList.add("speed2");
+}
 
 function restartAnimations() {
   /* Remove all classes from containers and force reflow */
@@ -149,61 +211,6 @@ function restartAnimations() {
   /* Reset timer animation */
   document.querySelector("#time_sprite").classList.remove("shrink");
   document.querySelector("#time_sprite").offsetWidth;
-}
-
-/* Game over and level complete functions */
-function gameOver() {
-  document.querySelector("#game_over").classList.remove("hidden");
-  stopGame();
-}
-
-function levelComplete() {
-  document.querySelector("#level_complete").classList.remove("hidden");
-  stopGame();
-}
-
-/* Functions for incrementing and decrementing lives and points */
-
-function incrementPoints() {
-  points++;
-  displayPoints();
-}
-
-function displayPoints() {
-  document.querySelector("#scorePoints").textContent = points;
-}
-
-function decrementPoints() {
-  points--;
-  displayPoints();
-}
-
-function decrementLives() {
-  if (lives <= 1) {
-    gameOver();
-  }
-  displaydecrementLives();
-  lives--;
-}
-
-function displaydecrementLives() {
-  document.querySelector("#heart" + lives).classList.remove("active_heart");
-  document.querySelector("#heart" + lives).classList.add("broken_heart");
-}
-
-function resetLivesDisplay() {
-  /* Remove all classes from hearts */
-  document.querySelector("#heart1").classList.remove("broken_heart")
-  document.querySelector("#heart2").classList.remove("broken_heart")
-  document.querySelector("#heart3").classList.remove("broken_heart")
-  document.querySelector("#heart1").classList.remove("active_heart")
-  document.querySelector("#heart2").classList.remove("active_heart")
-  document.querySelector("#heart3").classList.remove("active_heart")
-  
-  /* Add active hearts back */
-  document.querySelector("#heart1").classList.add("active_heart")
-  document.querySelector("#heart2").classList.add("active_heart")
-  document.querySelector("#heart3").classList.add("active_heart")
 }
 
 /* Functions for clickable sprites/containers */
