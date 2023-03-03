@@ -177,6 +177,8 @@ function stopGame() {
   punkBird.classList.add("paused");
   bluePlane.classList.add("paused");
   darkBluePlane.classList.add("paused");
+  
+  document.querySelector("#backgroundSound").pause();
 }
 
 function startAnimations() {
