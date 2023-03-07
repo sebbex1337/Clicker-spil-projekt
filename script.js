@@ -140,12 +140,12 @@ function playSound() {
 
 function addListeners() {
   /* Clickable containers */
-  grumpyBird.addEventListener("click", clickBird);
-  fryingBird.addEventListener("click", clickBird);
-  pinkBird.addEventListener("click", clickBird);
-  punkBird.addEventListener("click", clickBird);
-  bluePlane.addEventListener("click", planeClick);
-  darkBluePlane.addEventListener("click", planeClick);
+  grumpyBird.addEventListener("mousedown", clickBird);
+  fryingBird.addEventListener("mousedown", clickBird);
+  pinkBird.addEventListener("mousedown", clickBird);
+  punkBird.addEventListener("mousedown", clickBird);
+  bluePlane.addEventListener("mousedown", planeClick);
+  darkBluePlane.addEventListener("mousedown", planeClick);
   /* Random position on animationend */
   grumpyBird.addEventListener("animationiteration", birdRestart);
   fryingBird.addEventListener("animationiteration", birdRestart);
@@ -163,12 +163,12 @@ function stopGame() {
   punkBird.removeEventListener("animationend", birdGone);
   bluePlane.removeEventListener("animationend", planeGone);
   darkBluePlane.removeEventListener("animationend", planeGone);
-  grumpyBird.removeEventListener("click", clickBird);
-  fryingBird.removeEventListener("click", clickBird);
-  pinkBird.removeEventListener("click", clickBird);
-  punkBird.removeEventListener("click", clickBird);
-  bluePlane.removeEventListener("click", planeClick);
-  darkBluePlane.removeEventListener("click", planeClick);
+  grumpyBird.removeEventListener("mousedown", clickBird);
+  fryingBird.removeEventListener("mousedown", clickBird);
+  pinkBird.removeEventListener("mousedown", clickBird);
+  punkBird.removeEventListener("mousedown", clickBird);
+  bluePlane.removeEventListener("mousedown", planeClick);
+  darkBluePlane.removeEventListener("mousedown", planeClick);
   
   /* Stop animations */
   grumpyBird.classList.add("paused");
@@ -227,7 +227,7 @@ function restartAnimations() {
 function clickBird() {
   const bird = this;
   // Remove eventlistener
-  bird.removeEventListener("click", clickBird);
+  bird.removeEventListener("mousedown", clickBird);
 
   // Add pause and hit animations
   bird.classList.add("paused");
@@ -255,7 +255,7 @@ function birdGone() {
   birdRestart.call(this);
 
   // Add ability to click again
-  bird.addEventListener("click", clickBird);
+  bird.addEventListener("mousedown", clickBird);
 }
 
 function birdRestart() {
@@ -273,7 +273,7 @@ function birdRestart() {
 function planeClick() {
   const plane = this;
   // Remove eventlistener
-  plane.removeEventListener("click", planeClick);
+  plane.removeEventListener("mousedown", planeClick);
 
   // Add pause and hit animations
   plane.classList.add("paused");
@@ -303,7 +303,7 @@ function planeGone() {
   planeRestart.call(this);
 
   // Add ability to click again
-  plane.addEventListener("click", planeClick);
+  plane.addEventListener("mousedown", planeClick);
 }
 
 function planeRestart() {
