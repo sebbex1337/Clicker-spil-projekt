@@ -204,6 +204,12 @@ function restartAnimations() {
   punkBird.classList.remove("paused", "flying1", "flying2", "flying3", "flying4", "speed1", "speed2", "speed3", "speed4", "speed5");
   bluePlane.classList.remove("paused", "plane1", "plane2", "plane3", "plane4", "speed1", "speed2", "speed3", "speed4", "speed5");
   darkBluePlane.classList.remove("paused", "plane1", "plane2", "plane3", "plane4", "speed1", "speed2", "speed3", "speed4", "speed5");
+  grumpySprite.classList.remove("hit");
+  fryingSprite.classList.remove("hit");
+  pinkSprite.classList.remove("hit");
+  punkSprite.classList.remove("hit");
+  blueSprite.classList.remove("hit");
+  darkBlueSprite.classList.remove("hit");
   grumpyBird.offsetWidth;
   fryingBird.offsetWidth;
   pinkBird.offsetWidth;
