@@ -111,6 +111,7 @@ img {
   font-size: 2em;
   font-family: sans-serif;
   pointer-events: none;
+  user-select: none;
 }
 
 #time_container {
